@@ -1,0 +1,11 @@
+name: Integration
+on: [push]
+jobs:
+  build:
+    name: Integration job
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v4
+      - run: dotnet build "Ejemplo.sln"
+      - run: dotnet test "Ejemplo.sln"
