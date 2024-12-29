@@ -1,8 +1,17 @@
 trigger:
 - main
 
+strategy:
+  matrix:
+    Ubuntu:
+      imageName: "ubuntu-latest"
+    Windows:
+      imageName: "windows-latest"
+    Mac:
+      imageName: "macos-latest"
+
 pool:
-  vmImage: ubuntu-latest
+  vmImage: $(imageName)
 
 steps:
 - checkout: self
