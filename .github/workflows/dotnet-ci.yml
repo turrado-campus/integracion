@@ -2,8 +2,11 @@ name: Integration
 on: [push]
 jobs:
   build:
-    name: Integration job
-    runs-on: "ubuntu-latest"
+    strategy:
+      matrix:
+        agent: ["ubuntu-latest","windows-latest","macos-latest"]
+    name: Integration job in ${{matrix.agent}}
+    runs-on: ${{matrix.agent}}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-dotnet@v4
