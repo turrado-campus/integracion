@@ -1,0 +1,13 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- checkout: self
+- task: UseDotNet@2
+  inputs:
+    useGlobalJson: true
+- script: dotnet build "Ejemplo.sln"
+- script: dotnet test "Ejemplo.sln"
